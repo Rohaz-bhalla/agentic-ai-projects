@@ -21,9 +21,14 @@ def chat(
 
 @app.get('/job-status')
 def get_result(
-    job_id: str = Query(...,description="Job ID")
+    job_id: str = Query(..., description="Job ID")
 ):
     job = queue.fetch_job(job_id=job_id)
-    result = job.return_value()
+    
+    if job is None:
+        return {"error": "Job not found. Check the ID."}
 
-    return{ "result": result }
+    return { 
+        "status": job.get_status(), # This will show: queued, started, finished, or failed
+        "result": job.result 
+    }

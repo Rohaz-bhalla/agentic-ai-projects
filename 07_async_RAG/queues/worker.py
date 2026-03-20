@@ -29,12 +29,14 @@ def process_query(query:str):
 
     You should only ans the user based on the following context and navigate the user to open the right page number to know more.
 
+    Give answer in nice structured format, Dont use LaTeX, structure the output in human readable format
+
     Context:
     {context}
     """
 
     response = client.chat.completions.create(
-        model="gpt-5",
+        model="gpt-4o-mini",
         messages=[
             { "role": "system", "content":SYSTEM_PROMPT  },
             { "role": "user", "content":query  },
