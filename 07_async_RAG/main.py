@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from fastapi import FastAPI, Query
-from .queues.worker import process_query
-from .client.rq_client import queue
+from queues.worker import process_query
+from client.rq_client import queue
 
 load_dotenv()
 

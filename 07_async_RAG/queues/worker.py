@@ -18,7 +18,7 @@ vector_db = QdrantVectorStore.from_existing_collection(
     collection_name = "Learning RAG"
 )
 
-async def process_query(query:str):
+def process_query(query:str):
     print("Searching Chunks", query)
     search_results = vector_db.similarity_search(query=query)
 

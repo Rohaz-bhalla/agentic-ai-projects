@@ -3,5 +3,5 @@ from rq import Queue
 
 queue = Queue(connection=Redis(
     host = "localhost",
-    port = "6239"
+    port = "6379"
 ))
